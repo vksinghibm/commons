@@ -265,6 +265,9 @@ if [ ! -z "${APP_SERVICE}" ]; then
         echo "Existing route to expose service $APP_SERVICE"
       else
         # create OpenShift route
+
+echo "OC VERSION"
+oc version  
 cat > test-route.json << EOF
 {"apiVersion":"route.openshift.io/v1","kind":"Route","metadata":{"name":"${APP_SERVICE}"},"spec":{"to":{"kind":"Service","name":"${APP_SERVICE}"}}}
 EOF
